@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Coconut Children | Belvoir Youth Campaign Prototype</title>
+    <meta
+      name="description"
+      content="An interactive campaign microsite prototype for The Coconut Children at Belvoir."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="site-shell">
+      <aside class="side-nav" aria-label="Campaign sections">
+        <div class="brand-mark">TCC</div>
+        <p class="kicker">Belvoir youth campaign prototype</p>
+        <nav class="nav-list">
+          <button class="nav-key active" type="button" data-page="home">Home</button>
+          <button class="nav-key" type="button" data-page="tickets">Tickets</button>
+          <button class="nav-key" type="button" data-page="story">Story</button>
+          <button class="nav-key" type="button" data-page="cabramatta">Cabramatta</button>
+          <button class="nav-key" type="button" data-page="calendar">Calendar</button>
+          <button class="nav-key" type="button" data-page="return">Return</button>
+        </nav>
+        <a class="quiet-link" href="#tickets" data-jump="tickets">Tickets from $[X]</a>
+      </aside>
+
+      <section class="stage" aria-live="polite">
+        <div class="ambient" aria-hidden="true">
+          <span class="orb orb-a"></span>
+          <span class="orb orb-b"></span>
+          <span class="paper paper-a">Cabramatta</span>
+          <span class="paper paper-b">1998</span>
+          <span class="thread"></span>
+        </div>
+
+        <div class="scene active" id="home">
+          <span class="sticker sticker-coconut home-coconut" aria-hidden="true"></span>
+          <span class="sticker sticker-palm home-palm" aria-hidden="true"></span>
+          <div class="copy-panel hero-copy">
+            <p class="eyebrow">Cabramatta, late '90s</p>
+            <h1>The Coconut Children</h1>
+            <p class="lead">One summer, two teenagers, everything about to change.</p>
+            <div class="button-row">
+              <button class="primary-action" type="button" data-jump="tickets">
+                Now playing at Belvoir St Theatre
+              </button>
+              <button class="secondary-action" type="button" data-jump="story">
+                Share your story
+              </button>
+            </div>
+          </div>
+
+          <div class="illustration-board home-board" aria-label="Illustrated campaign desk">
+            <div class="object sign">Cabramatta Station</div>
+            <div class="object ticket ticket-main">
+              <span>The Coconut Children</span>
+              <strong>Belvoir St Theatre</strong>
+            </div>
+            <div class="object drink">
+              <span class="cup-top"></span>
+              <span class="cup-body">coconut</span>
+            </div>
+            <div class="object camera">
+              <span></span>
+            </div>
+            <div class="object note">
+              Everyone's got a coming-of-age story.
+            </div>
+          </div>
+        </div>
+
+        <div class="scene" id="tickets">
+          <span class="sticker sticker-coconut tickets-coconut" aria-hidden="true"></span>
+          <span class="sticker sticker-boba tickets-boba" aria-hidden="true"></span>
+          <div class="copy-panel">
+            <p class="eyebrow">Bring a friend</p>
+            <h2>Better with someone next to you.</h2>
+            <p class="lead">The first attendance barrier is social. This offer makes a theatre night easier to say yes to.</p>
+          </div>
+          <div class="content-card ticket-lab">
+            <div class="choice-row" role="tablist" aria-label="Ticket options">
+              <button class="choice active" type="button" data-ticket="solo">Solo</button>
+              <button class="choice" type="button" data-ticket="friend">With a friend</button>
+              <button class="choice" type="button" data-ticket="family">With family</button>
+            </div>
+            <div class="ticket-display">
+              <div class="ticket-stub">
+                <p id="ticketLabel">First-time young audience ticket</p>
+                <strong id="ticketOffer">A low-pressure entry point for someone new to Belvoir.</strong>
+              </div>
+              <div class="coupon">
+                <span>Cabramatta boba partner</span>
+                <strong>Coconut-themed drink discount with ticket stub</strong>
+              </div>
+            </div>
+            <p class="fine-print">Prototype offer: 2-person tickets, family pricing, and local food/drink rewards can be tested by booking code and ticket-stub redemption.</p>
+          </div>
+        </div>
+
+        <div class="scene" id="story">
+          <span class="sticker sticker-camera story-camera" aria-hidden="true"></span>
+          <span class="sticker sticker-cassette story-cassette" aria-hidden="true"></span>
+          <div class="copy-panel">
+            <p class="eyebrow">Share your story</p>
+            <h2>Everyone's got a coming-of-age story.</h2>
+            <p class="lead">Turn the play's themes into audience participation, not just promotion.</p>
+          </div>
+          <div class="content-card social-lab">
+            <section class="story-prompts" aria-label="Audience story prompts">
+              <div class="prompt-grid">
+                <button type="button" data-prompt="A summer that changed me">A summer that changed me</button>
+                <button type="button" data-prompt="A place that raised me">A place that raised me</button>
+                <button type="button" data-prompt="A friend I still remember">A friend I still remember</button>
+                <button type="button" data-prompt="A family story I carry">A family story I carry</button>
+              </div>
+              <article class="mock-post">
+                <div class="post-header">
+                  <span>#CoconutChildrenBelvoir</span>
+                  <span>weekly double pass</span>
+                </div>
+                <h3 id="postTitle">A summer that changed me</h3>
+                <p id="postCopy">Post yours on TikTok or Instagram. A new winner is picked weekly.</p>
+              </article>
+            </section>
+
+            <section class="influencer-activation" aria-label="Online influencer activation">
+              <div class="section-strip">
+                <span>Online Influencer Activation</span>
+                <strong>Local voices turn the night into conversation.</strong>
+              </div>
+
+              <div class="creator-grid">
+                <article class="creator-card active" data-creator="tiktok">
+                  <div class="avatar avatar-a"></div>
+                  <span class="platform-pill">Short video</span>
+                  <h3>TikTok creator</h3>
+                  <p><strong>Audience</strong> Western Sydney Gen Z</p>
+                  <p><strong>Format</strong> GRWM + after-show reaction</p>
+                  <q>Cabramatta stories hit different when they are on stage.</q>
+                </article>
+
+                <article class="creator-card" data-creator="instagram">
+                  <div class="avatar avatar-b"></div>
+                  <span class="platform-pill">Micro-influencer</span>
+                  <h3>Instagram local</h3>
+                  <p><strong>Audience</strong> food, fashion, friend groups</p>
+                  <p><strong>Format</strong> carousel + story poll</p>
+                  <q>Coconut drinks, train ride, theatre night.</q>
+                </article>
+
+                <article class="creator-card" data-creator="youtube">
+                  <div class="avatar avatar-c"></div>
+                  <span class="platform-pill">Reels / video</span>
+                  <h3>YouTube creator</h3>
+                  <p><strong>Audience</strong> arts-curious students</p>
+                  <p><strong>Format</strong> 45-sec mini vlog</p>
+                  <q>From Cabramatta to Belvoir: why this story matters.</q>
+                </article>
+              </div>
+
+              <div class="campaign-flow" aria-label="Influencer campaign flow">
+                <span>Invite creators</span>
+                <span>Experience</span>
+                <span>Create content</span>
+                <span>Audience engagement</span>
+                <span>Website visits / bookings</span>
+              </div>
+
+              <div class="content-wall" aria-label="Social media content wall">
+                <article class="phone-card video-card">
+                  <div class="phone-top">
+                    <span>Short video</span>
+                    <strong>18.4K</strong>
+                  </div>
+                  <div class="video-thumb thumb-a">
+                    <span>GRWM</span>
+                  </div>
+                  <p>First time seeing my suburb on stage.</p>
+                  <div class="engagement-row">
+                    <span>8.2K likes</span>
+                    <span>316 comments</span>
+                  </div>
+                </article>
+
+                <article class="phone-card post-card">
+                  <div class="phone-top">
+                    <span>Carousel</span>
+                    <strong>4.7K</strong>
+                  </div>
+                  <div class="video-thumb thumb-b">
+                    <span>Cabra night</span>
+                  </div>
+                  <p>Save this for a friend date before the show.</p>
+                  <div class="engagement-row">
+                    <span>2.9K likes</span>
+                    <span>89 shares</span>
+                  </div>
+                </article>
+
+                <article class="phone-card video-card small">
+                  <div class="phone-top">
+                    <span>Reels</span>
+                    <strong>9.1K</strong>
+                  </div>
+                  <div class="video-thumb thumb-c">
+                    <span>reaction</span>
+                  </div>
+                  <p>That ending had everyone quiet.</p>
+                  <div class="engagement-row">
+                    <span>1.8K likes</span>
+                    <span>42 saves</span>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="scene" id="cabramatta">
+          <div class="copy-panel">
+            <p class="eyebrow">Cabramatta</p>
+            <h2>Outside.</h2>
+            <p class="lead">Sip. Read. Arrive. Learn. Gather.</p>
+          </div>
+          <div class="content-card map-lab">
+            <div class="map-wrap">
+              <div class="mini-map" id="cabramattaMapViewport" aria-label="Interactive illustrated Cabramatta map">
+                <div class="map-canvas" id="cabramattaMapCanvas">
+                  <img class="map-image" src="assets/cabramatta-map.png" alt="" />
+                  <span class="map-wash" aria-hidden="true"></span>
+                </div>
+              </div>
+            </div>
+            <div class="place-note">
+              <div class="place-buttons" id="cabramattaPlaceButtons" aria-label="Campaign map locations"></div>
+              <span id="placeLabel">Sip</span>
+              <strong id="placeTitle">Coconut stop</strong>
+              <p id="placeCopy">Ticket stub reward.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="scene" id="calendar">
+          <span class="sticker sticker-flyer calendar-flyer" aria-hidden="true"></span>
+          <div class="copy-panel">
+            <p class="eyebrow">Content calendar</p>
+            <h2>What's dropping when.</h2>
+            <p class="lead">A campaign works better when each week has a clear audience action.</p>
+          </div>
+          <div class="content-card calendar-lab">
+            <div class="calendar-sidebar" aria-label="Campaign channels">
+              <div class="calendar-dots" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <h3>June 2026</h3>
+              <div class="channel-list">
+                <button class="channel active" type="button">Home</button>
+                <button class="channel active" type="button">TikTok</button>
+                <button class="channel active" type="button">Instagram</button>
+                <button class="channel active" type="button">Cabramatta</button>
+                <button class="channel active" type="button">Belvoir</button>
+              </div>
+              <div class="mini-month" aria-label="Mini month calendar">
+                <span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
+                <small>31</small><small>1</small><small>2</small><small>3</small><small>4</small><small>5</small><small>6</small>
+                <small>7</small><small class="today">8</small><small>9</small><small>10</small><small>11</small><small>12</small><small>13</small>
+                <small>14</small><small>15</small><small>16</small><small>17</small><small>18</small><small>19</small><small>20</small>
+              </div>
+            </div>
+            <div class="calendar-board">
+              <div class="calendar-toolbar">
+                <div class="view-switch" aria-label="Calendar view">
+                  <button type="button">Day</button>
+                  <button class="active" type="button">Week</button>
+                  <button type="button">Month</button>
+                </div>
+                <button class="today-button" type="button">Today</button>
+              </div>
+              <div class="week-header" aria-hidden="true">
+                <span></span>
+                <strong>Week 1</strong>
+                <strong>Week 2</strong>
+                <strong>Week 3</strong>
+                <strong>Week 4</strong>
+              </div>
+              <div class="calendar-grid" aria-label="Campaign content calendar">
+                <span class="time-label">9 AM</span>
+                <span class="time-label">12 PM</span>
+                <span class="time-label">3 PM</span>
+                <span class="time-label">6 PM</span>
+                <button class="event-block event-reel active" type="button" data-week="1">
+                  Cast intros<br /><small>vibe teaser reel</small>
+                </button>
+                <button class="event-block event-bts" type="button" data-week="2">
+                  Rehearsal clips<br /><small>behind the scenes</small>
+                </button>
+                <button class="event-block event-challenge" type="button" data-week="3">
+                  #CoconutChildrenBelvoir<br /><small>challenge live</small>
+                </button>
+                <button class="event-block event-open" type="button" data-week="4">
+                  Opening night<br /><small>winner + matinee push</small>
+                </button>
+              </div>
+              <div class="week-detail">
+                <span id="weekPlatform">TikTok + Instagram</span>
+                <h3 id="weekTitle">Cast intros and a vibe teaser reel</h3>
+                <p id="weekCopy">A Lady Bird-style mood piece introduces the world, faces, and late-'90s Cabramatta feeling.</p>
+                <p class="goal" id="weekGoal">Goal: turn awareness into saved posts and ticket consideration.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="scene" id="return">
+          <span class="sticker sticker-theatre-ticket return-ticket" aria-hidden="true"></span>
+          <div class="copy-panel">
+            <p class="eyebrow">Second night</p>
+            <h2>The first ticket starts the story. The second ticket keeps it going.</h2>
+            <p class="lead">This is where the campaign connects back to repeat attendance.</p>
+          </div>
+          <div class="content-card return-lab">
+            <div class="pathway" aria-label="Repeat attendance pathway">
+              <button class="path-node active" type="button" data-path="first">First ticket</button>
+              <button class="path-node" type="button" data-path="friend">Friend experience</button>
+              <button class="path-node" type="button" data-path="local">Local engagement</button>
+              <button class="path-node" type="button" data-path="offer">Return offer</button>
+              <button class="path-node" type="button" data-path="second">Second purchase</button>
+            </div>
+            <div class="path-detail">
+              <h3 id="pathTitle">First ticket</h3>
+              <p id="pathCopy">Coconut Children becomes a clear entry point for first-time 18-24 audiences.</p>
+            </div>
+            <div class="metric-row">
+              <span>18-24 first-time buyers</span>
+              <span>friend-ticket conversion</span>
+              <span>90-day repeat rate</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
