@@ -14,89 +14,84 @@ const ticketData = {
     label: "Family pricing",
     offer: "Make the story shareable across generations and households.",
   },
+  drink: {
+    label: "HEYTEA Perk",
+    offer: "Ticket stub = coconut drink discount. The ticket becomes a social reward before the show.",
+  },
 };
 
 const placeData = {
   station: {
-    iconImage: "assets/stickers/station-sign.png",
-    x: 25,
-    y: 65,
+    iconImage: "assets/map-markers/cabramatta-station.png",
+    x: 33,
+    y: 63,
     scale: 1.34,
     label: "Arrive",
-    title: "Station",
-    copy: "QR posters.",
+    title: "Cabramatta Station",
+    copy: "QR flyers turn commuter foot traffic into campaign-site visits.",
   },
-  coconut: {
-    iconImage: "assets/stickers/coconut.png",
-    x: 39,
-    y: 31,
+  heyytea: {
+    iconImage: "assets/map-markers/heyytea-coconut-boba.png",
+    x: 47,
+    y: 38,
     scale: 1.36,
     label: "Sip",
-    title: "Coconut stop",
-    copy: "Ticket stub reward.",
+    title: "HEYTEA",
+    copy: "Ticket stub or QR code unlocks a coconut drink discount.",
   },
-  coffee: {
-    icon: "☕",
-    x: 41,
-    y: 29,
-    scale: 1.38,
-    label: "Meet",
-    title: "Cafe pause",
-    copy: "Before show.",
-  },
-  theatre: {
-    iconImage: "assets/stickers/theatre-ticket.png",
-    x: 63,
-    y: 75,
+  library: {
+    iconImage: "assets/stickers/library-book.png",
+    x: 58,
+    y: 52,
     scale: 1.3,
-    label: "Watch",
-    title: "Belvoir link",
-    copy: "Next night.",
+    label: "Discover",
+    title: "Cabramatta Library",
+    copy: "A Coconut Children pop-up display connects the story to local memory.",
   },
-  park: {
-    icon: "🌳",
-    x: 78,
-    y: 61,
+  school: {
+    iconImage: "assets/map-markers/cabramatta-high-school.png",
+    x: 70,
+    y: 66,
     scale: 1.28,
-    label: "Gather",
-    title: "Green space",
-    copy: "Community stop.",
+    label: "Discuss",
+    title: "Cabramatta High School",
+    copy: "Student group tickets pair with a coming-of-age discussion prompt.",
   },
-  noodles: {
-    icon: "🍜",
-    x: 73,
-    y: 39,
+  wsu: {
+    iconImage: "assets/map-markers/wsu-parramatta.png",
+    x: 77,
+    y: 34,
     scale: 1.32,
-    label: "Eat",
-    title: "Dinner stop",
-    copy: "Friend route.",
+    label: "Share",
+    title: "WSU Parramatta",
+    copy: "Campus ambassadors and short-video creators extend the route to Western Sydney students.",
   },
 };
 
 const weekData = {
   1: {
-    platform: "TikTok + Instagram",
-    title: "Cast intros and a vibe teaser reel",
-    copy: "A Lady Bird-style mood piece introduces the world, faces, and late-'90s Cabramatta feeling.",
-    goal: "Goal: turn awareness into saved posts and ticket consideration.",
+    platform: "Cabramatta Station",
+    title: "Station QR flyers",
+    copy: "QR flyers catch commuting students and friend groups at the first point of the route.",
+    goal: "Goal: turn everyday foot traffic into campaign-site visits.",
   },
   2: {
-    platform: "Instagram Reels + stories",
-    title: "Behind-the-scenes rehearsal clips",
-    copy: "Short rehearsal moments help the show feel human, current, and close to young viewers.",
-    goal: "Goal: make Belvoir feel less distant before purchase.",
+    platform: "Cabramatta Library",
+    title: "Library pop-up",
+    copy: "A small display and cast Q&A introduce late-'90s Cabramatta, migration, friendship, and local memory.",
+    goal: "Goal: make the story feel rooted in the community before purchase.",
   },
   3: {
-    platform: "TikTok + Instagram",
-    title: "#CoconutChildrenBelvoir challenge goes live",
-    copy: "Audience prompts invite young people to post their own coming-of-age story.",
-    goal: "Goal: turn attention into participation and peer discovery.",
+    platform: "HEYTEA",
+    title: "HEYTEA ticket perk",
+    copy: "Ticket holders use a stub or QR code for a coconut drink discount before or after the show.",
+    goal: "Goal: turn a ticket into a visible social reward.",
   },
   4: {
-    platform: "All channels",
-    title: "Opening night, winner announced, matinee push",
-    copy: "Weekly double-pass winner, brunch-spot recommendations in bio, and a clear 1-2pm matinee callout.",
-    goal: "Goal: convert social interest into group bookings and return offers.",
+    platform: "WSU Parramatta + Belvoir",
+    title: "Creator posts + friend-ticket push",
+    copy: "Campus ambassadors post short videos, then viewers receive a friend-ticket or second-night offer.",
+    goal: "Goal: convert social sharing into return attendance.",
   },
 };
 
@@ -110,12 +105,12 @@ const pathData = {
     copy: "Two-person tickets and group prompts reduce the social barrier to trying theatre.",
   },
   local: {
-    title: "Local engagement",
-    copy: "Cabramatta partnerships make the show feel connected to place, not only to the theatre building.",
+    title: "Cabramatta route",
+    copy: "Station, HEYTEA, Library, High School, and WSU turn the campaign into a local youth pathway.",
   },
   offer: {
-    title: "Return offer",
-    copy: "A 90-day young audience offer gives people a concrete reason to come back.",
+    title: "Friend-ticket offer",
+    copy: "After the show, ticket holders receive a friend-ticket or second-night offer to bring someone back.",
   },
   second: {
     title: "Second purchase",
@@ -124,7 +119,7 @@ const pathData = {
 };
 
 const mapState = {
-  selectedLocation: "coconut",
+  selectedLocation: "heyytea",
   panX: 0,
   panY: 0,
   scale: 1.2,
@@ -146,6 +141,47 @@ function applyMapTransform() {
   canvas.style.setProperty("--pan-x", `${mapState.panX}px`);
   canvas.style.setProperty("--pan-y", `${mapState.panY}px`);
   canvas.style.setProperty("--map-scale", mapState.scale);
+}
+
+function renderMiniMonth(referenceDate = new Date()) {
+  const monthLabel = document.querySelector("#calendarMonthLabel");
+  const miniMonth = document.querySelector("#miniMonthCalendar");
+  if (!monthLabel || !miniMonth) return;
+
+  const year = referenceDate.getFullYear();
+  const month = referenceDate.getMonth();
+  const todayDate = referenceDate.getDate();
+  const firstDay = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  const previousMonthDays = new Date(year, month, 0).getDate();
+  const visibleDays = Math.max(21, Math.ceil((firstDay + daysInMonth) / 7) * 7);
+  const monthName = referenceDate.toLocaleString("en-US", { month: "long" });
+
+  monthLabel.textContent = `${monthName} ${year}`;
+  miniMonth.setAttribute("aria-label", `${monthName} ${year} mini month calendar`);
+
+  miniMonth.querySelectorAll("small").forEach((day) => day.remove());
+
+  for (let index = 0; index < visibleDays; index += 1) {
+    const dayCell = document.createElement("small");
+    const dayNumber = index - firstDay + 1;
+
+    if (dayNumber < 1) {
+      dayCell.textContent = previousMonthDays + dayNumber;
+      dayCell.className = "outside-month";
+    } else if (dayNumber > daysInMonth) {
+      dayCell.textContent = dayNumber - daysInMonth;
+      dayCell.className = "outside-month";
+    } else {
+      dayCell.textContent = dayNumber;
+      if (dayNumber === todayDate) {
+        dayCell.className = "today";
+        dayCell.setAttribute("aria-current", "date");
+      }
+    }
+
+    miniMonth.append(dayCell);
+  }
 }
 
 function centerMapOnLocation(placeId, options = {}) {
@@ -293,6 +329,21 @@ function showPage(pageId) {
 }
 
 document.addEventListener("click", (event) => {
+  const navToggle = event.target.closest(".nav-toggle");
+  if (navToggle) {
+    const isSmallDesktop = window.matchMedia("(max-width: 1180px)").matches;
+    if (isSmallDesktop) {
+      document.body.classList.toggle("nav-expanded");
+      const expanded = document.body.classList.contains("nav-expanded");
+      navToggle.setAttribute("aria-expanded", String(expanded));
+    } else {
+      document.body.classList.toggle("nav-collapsed");
+      const expanded = !document.body.classList.contains("nav-collapsed");
+      navToggle.setAttribute("aria-expanded", String(expanded));
+    }
+    return;
+  }
+
   const jump = event.target.closest("[data-jump]");
   if (jump) {
     showPage(jump.dataset.jump);
@@ -311,8 +362,12 @@ document.addEventListener("click", (event) => {
       button.classList.toggle("active", button === ticket);
     });
     const data = ticketData[ticket.dataset.ticket];
-    document.querySelector("#ticketLabel").textContent = data.label;
-    document.querySelector("#ticketOffer").textContent = data.offer;
+    const ticketLabel = document.querySelector("#ticketLabel");
+    const ticketOffer = document.querySelector("#ticketOffer");
+    if (ticketLabel && ticketOffer && data) {
+      ticketLabel.textContent = data.label;
+      ticketOffer.textContent = data.offer;
+    }
     return;
   }
 
@@ -370,3 +425,4 @@ if (pages.some((page) => page.id === initialPage)) {
 
 renderIllustratedMap();
 initMapDrag();
+renderMiniMonth();
